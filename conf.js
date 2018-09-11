@@ -16,6 +16,7 @@ exports.config = {
     'specs/bookings_test_spec.js',
     'specs/dishes_test_spec.js',
     'specs/review_test_spec.js',
+    'specs/schedule_test_spec.js',
 
   ],
 
