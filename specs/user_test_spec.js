@@ -13,7 +13,7 @@ var util = require('util'),
 describe('Test GraphQL USER API queries', function () {
 
     var updateUserQuery,addUserPayment,userPaymentMethods,updateUserPayment,savedPosts,savedDishes,savedChefs,refundUser,forgotPassword,deleteUserPayment,deleteUser,deleteSavedItems,addUserToStripe,addSavedItems;
-    var cardID, newCardId = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+    var newCardId = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
 
     beforeEach(function (done) {
         if (!userInfo) {
@@ -110,7 +110,7 @@ describe('Test GraphQL USER API queries', function () {
             return res.json();
 
         }).then(function (response) {
-            cardID = response.data.userPaymentMethods[0].card.cardId;
+            global.cardID = response.data.userPaymentMethods[0].card.cardId;
             helperUtil.addStep("User Payment api response is :: " + JSON.stringify(response.data.userPaymentMethods[0]));
             done();
         }).catch(err => done(err));
@@ -119,7 +119,7 @@ describe('Test GraphQL USER API queries', function () {
     it('ZESTY_USER-005 :Update User Payment api', function (done) {
 
         console.log("Card ID is :: >>>>>>>>>>> HOLA >>>>>>>>>>"+cardID);
-        newCardId = cardID;
+        newCardId = global.cardID;
         updateUserPayment = "mutation {updateUserPayment( userId: \"" + global.userID + "\", payment: { type: CARD, card: { number: \"378282246310005\", expMonth: 5, expYear: 2025, cvc: 987 } }, cardId: \""+ newCardId + "\" )}";
 
         console.log("New Request :: "+updateUserPayment);
@@ -133,10 +133,10 @@ describe('Test GraphQL USER API queries', function () {
 
         }).then(function (response) {
             helperUtil.addStep("Update User Payment response is :: " + JSON.stringify(response.data.updateUserPayment));
-            cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+            //cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
             done();
         }).catch(err => {
-            cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+            //cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
             done(err);
         });
     });

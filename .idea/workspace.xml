@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e896c758-3adf-457b-adbc-1deda1925b0b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.js" afterPath="$PROJECT_DIR$/conf.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/bookings_test_spec.js" afterPath="$PROJECT_DIR$/specs/bookings_test_spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/dishes_test_spec.js" afterPath="$PROJECT_DIR$/specs/dishes_test_spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/user_test_spec.js" afterPath="$PROJECT_DIR$/specs/user_test_spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testData/testData_DEV.json" afterPath="$PROJECT_DIR$/testData/testData_DEV.json" />
     </list>
     <ignored path="spisa-test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,38 +41,68 @@
       <file leaf-file-name="bookings_test_spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/specs/bookings_test_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="116" column="68" selection-start-line="116" selection-start-column="68" selection-end-line="116" selection-end-column="68" />
+            <state relative-caret-position="270">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#2594#3176#0" expanded="false" />
-                <element signature="e#3258#3982#0" expanded="false" />
-                <element signature="e#4064#5232#0" expanded="false" />
-                <element signature="e#6480#7082#0" expanded="false" />
-                <element signature="e#7155#7743#0" expanded="false" />
-                <element signature="e#7813#8397#0" expanded="false" />
-                <element signature="e#8465#9047#0" expanded="false" />
+                <element signature="e#6426#7028#0" expanded="false" />
+                <element signature="e#7101#7689#0" expanded="false" />
+                <element signature="e#7759#8343#0" expanded="false" />
+                <element signature="e#8411#8993#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_test_spec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="conf.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dishes_test_spec.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/specs/dishes_test_spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="e#4185#4762#0" expanded="false" />
+                <element signature="e#4831#5417#0" expanded="false" />
+                <element signature="e#5480#6054#0" expanded="false" />
+                <element signature="e#6119#6697#0" expanded="false" />
+                <element signature="e#6755#7321#0" expanded="false" />
+                <element signature="e#7389#7971#0" expanded="false" />
+                <element signature="e#8036#8614#0" expanded="false" />
+                <element signature="e#8683#9269#0" expanded="false" />
+                <element signature="e#9334#9912#0" expanded="false" />
+                <element signature="e#9986#10580#0" expanded="false" />
+                <element signature="e#10645#11223#0" expanded="false" />
+                <element signature="e#11292#11874#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_test_spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/specs/user_test_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+            <state relative-caret-position="114">
+              <caret line="116" column="7" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
               <folding>
-                <element signature="e#3482#3997#0" expanded="false" />
-                <element signature="e#4066#4613#0" expanded="false" />
-                <element signature="e#4680#5207#0" expanded="false" />
-                <element signature="e#7168#7708#0" expanded="false" />
-                <element signature="e#7769#8304#0" expanded="false" />
-                <element signature="e#8367#8911#0" expanded="false" />
-                <element signature="e#8973#9513#0" expanded="false" />
-                <element signature="e#9583#10121#0" expanded="false" />
-                <element signature="e#10192#10738#0" expanded="false" />
-                <element signature="e#10808#11360#0" expanded="false" />
-                <element signature="e#11429#11967#0" expanded="false" />
+                <element signature="e#3474#3989#0" expanded="false" />
+                <element signature="e#4058#4605#0" expanded="false" />
+                <element signature="e#4672#5199#0" expanded="false" />
+                <element signature="e#7171#7711#0" expanded="false" />
+                <element signature="e#7772#8307#0" expanded="false" />
+                <element signature="e#8370#8914#0" expanded="false" />
+                <element signature="e#8976#9516#0" expanded="false" />
+                <element signature="e#9586#10124#0" expanded="false" />
+                <element signature="e#10195#10741#0" expanded="false" />
+                <element signature="e#10811#11363#0" expanded="false" />
+                <element signature="e#11432#11970#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,14 +154,14 @@
         <option value="$PROJECT_DIR$/utilities/helperUtil.js" />
         <option value="$PROJECT_DIR$/specs/cook_test_spec.js" />
         <option value="$PROJECT_DIR$/specs/review_test_spec.js" />
-        <option value="$PROJECT_DIR$/specs/dishes_test_spec.js" />
         <option value="$PROJECT_DIR$/specs/schedule_test_spec.js" />
         <option value="$PROJECT_DIR$/specs/post_test_spec.js" />
         <option value="$PROJECT_DIR$/specs/login_test_spec.js" />
         <option value="$PROJECT_DIR$/testData/testData_DEV.json" />
-        <option value="$PROJECT_DIR$/conf.js" />
-        <option value="$PROJECT_DIR$/specs/bookings_test_spec.js" />
         <option value="$PROJECT_DIR$/specs/user_test_spec.js" />
+        <option value="$PROJECT_DIR$/specs/bookings_test_spec.js" />
+        <option value="$PROJECT_DIR$/conf.js" />
+        <option value="$PROJECT_DIR$/specs/dishes_test_spec.js" />
       </list>
     </option>
   </component>
@@ -179,7 +208,38 @@
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spisa-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spisa-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spisa-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spisa-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spisa-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="specs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
@@ -331,12 +391,12 @@
       <workItem from="1536302606871" duration="7545000" />
       <workItem from="1536578904035" duration="9270000" />
       <workItem from="1536657699606" duration="7848000" />
-      <workItem from="1537182569886" duration="3644000" />
+      <workItem from="1537182569886" duration="4620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163928000" />
+    <option name="totallyTimeSpent" value="164904000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/specs/dishes_test_spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="34" column="82" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/specs/login_test_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -647,14 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utilities/helperUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -663,38 +708,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/specs/bookings_test_spec.js">
+    <entry file="file://$PROJECT_DIR$/specs/user_test_spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="116" column="68" selection-start-line="116" selection-start-column="68" selection-end-line="116" selection-end-column="68" />
+        <state relative-caret-position="114">
+          <caret line="116" column="7" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
           <folding>
-            <element signature="e#2594#3176#0" expanded="false" />
-            <element signature="e#3258#3982#0" expanded="false" />
-            <element signature="e#4064#5232#0" expanded="false" />
-            <element signature="e#6480#7082#0" expanded="false" />
-            <element signature="e#7155#7743#0" expanded="false" />
-            <element signature="e#7813#8397#0" expanded="false" />
-            <element signature="e#8465#9047#0" expanded="false" />
+            <element signature="e#3474#3989#0" expanded="false" />
+            <element signature="e#4058#4605#0" expanded="false" />
+            <element signature="e#4672#5199#0" expanded="false" />
+            <element signature="e#7171#7711#0" expanded="false" />
+            <element signature="e#7772#8307#0" expanded="false" />
+            <element signature="e#8370#8914#0" expanded="false" />
+            <element signature="e#8976#9516#0" expanded="false" />
+            <element signature="e#9586#10124#0" expanded="false" />
+            <element signature="e#10195#10741#0" expanded="false" />
+            <element signature="e#10811#11363#0" expanded="false" />
+            <element signature="e#11432#11970#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/specs/user_test_spec.js">
+    <entry file="file://$PROJECT_DIR$/specs/bookings_test_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#3482#3997#0" expanded="false" />
-            <element signature="e#4066#4613#0" expanded="false" />
-            <element signature="e#4680#5207#0" expanded="false" />
-            <element signature="e#7168#7708#0" expanded="false" />
-            <element signature="e#7769#8304#0" expanded="false" />
-            <element signature="e#8367#8911#0" expanded="false" />
-            <element signature="e#8973#9513#0" expanded="false" />
-            <element signature="e#9583#10121#0" expanded="false" />
-            <element signature="e#10192#10738#0" expanded="false" />
-            <element signature="e#10808#11360#0" expanded="false" />
-            <element signature="e#11429#11967#0" expanded="false" />
+            <element signature="e#6426#7028#0" expanded="false" />
+            <element signature="e#7101#7689#0" expanded="false" />
+            <element signature="e#7759#8343#0" expanded="false" />
+            <element signature="e#8411#8993#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/specs/dishes_test_spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#4185#4762#0" expanded="false" />
+            <element signature="e#4831#5417#0" expanded="false" />
+            <element signature="e#5480#6054#0" expanded="false" />
+            <element signature="e#6119#6697#0" expanded="false" />
+            <element signature="e#6755#7321#0" expanded="false" />
+            <element signature="e#7389#7971#0" expanded="false" />
+            <element signature="e#8036#8614#0" expanded="false" />
+            <element signature="e#8683#9269#0" expanded="false" />
+            <element signature="e#9334#9912#0" expanded="false" />
+            <element signature="e#9986#10580#0" expanded="false" />
+            <element signature="e#10645#11223#0" expanded="false" />
+            <element signature="e#11292#11874#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -22,7 +22,7 @@ describe('Test GraphQL DISHES API queries', function () {
             helperUtil.envInfo();
 
             calculatePrice = "mutation { calculatePrice(dishId: \"ef03145a-de48-484c-8f1c-db3409aecef4\", dinerCount: 1000000) }";
-            createDish = "mutation { createDish( dish: { chefId : \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", name : \"Chicken Tikka\", description : \"Laborum ad occaecat dolore fugiat id. Lorem officia irure mollit adipisicing laborum voluptate exercitation voluptate fugiat in proident. Culpa anim laboris nulla id reprehenderit esse cillum voluptate consequat quis. Laborum incididunt voluptate reprehenderit sunt sit sunt aliqua in minim elit.\", cuisines : [ \"Pakistani\" ],   approxIngredientsCost : 71.9982, approxPrepTime : 24, dishTypes : [ ORGANIC ], ingredients : [ \"Red Chillies\", \"Pork\", ], equipmentNeeded : [ \"Bread machine\", \"Communal oven\", \"Solar cooker\" ], minDinerSize : 19, minPrice : 92.9526, media : [ { type : VIDEO, url : \"https://unsplash.com/photos/Gg5-K-mJwuQ\" } ] }) }";
+            createDish = "mutation { createDish( dish: { chefId : \"" + global.userID + "\", name : \"Chicken Tikka\", description : \"Laborum ad occaecat dolore fugiat id. Lorem officia irure mollit adipisicing laborum voluptate exercitation voluptate fugiat in proident. Culpa anim laboris nulla id reprehenderit esse cillum voluptate consequat quis. Laborum incididunt voluptate reprehenderit sunt sit sunt aliqua in minim elit.\", cuisines : [ \"Pakistani\" ],   approxIngredientsCost : 71.9982, approxPrepTime : 24, dishTypes : [ ORGANIC ], ingredients : [ \"Red Chillies\", \"Pork\", ], equipmentNeeded : [ \"Bread machine\", \"Communal oven\", \"Solar cooker\" ], minDinerSize : 19, minPrice : 92.9526, media : [ { type : VIDEO, url : \"https://unsplash.com/photos/Gg5-K-mJwuQ\" } ] }) }";
             cuisines = "query { cuisines(country: \"US\") }";
             deleteDish = "mutation { deleteDish(id: \"182fbc05-4268-4a81-bdd2-6553d55d8fcc\") }";
             dish = "query { dish(id: \"33f2306e-f599-4017-99a5-8123a542252b\", live: true) { id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes } }";
@@ -31,7 +31,7 @@ describe('Test GraphQL DISHES API queries', function () {
             featuredDishes = "query { featuredDishes(dishCount: 10) {id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} }";
             findDishes = "query {findDishes(filters: {cuisines: [\"Chinese\",\"Italian\"], priceMin: 40, priceMax: 300, engagementSize: 6}, cursor: null, pageSize:10, includeChefs:true,chefCount: 3) { dishes{id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} endCursor hasMore }}";
             getAvailableDishes = "query { getAvailableDishes(country: \"USA\") }";
-            updateDish = "mutation { updateDish( dish: { id: \"33f2306e-f599-4017-99a5-8123a542252b\", chefId : \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", name : \"Fungee\", description : \"Laborum ad occaecat dolore fugiat id. Lorem officia irure mollit adipisicing laborum voluptate exercitation voluptate fugiat in proident. Culpa anim laboris nulla id reprehenderit esse cillum voluptate consequat quis. Laborum incididunt voluptate reprehenderit sunt sit sunt aliqua in minim elit.\", cuisines : [ \"Pakistani\" ],  approxIngredientsCost : 171.83, approxPrepTime : 60, dishTypes : [ ORGANIC ], ingredients : [ \"Red Chillies\", \"Pork\", ], equipmentNeeded : [ \"Bread machine\", \"Communal oven\", \"Solar cooker\" ], minDinerSize : 19,  media : [ { type : VIDEO, url : \"https://unsplash.com/photos/Gg5-K-mJwuQ\" } ] }) }";
+            updateDish = "mutation { updateDish( dish: { id: \"33f2306e-f599-4017-99a5-8123a542252b\", chefId : \"" + global.userID + "\", name : \"Fungee\", description : \"Laborum ad occaecat dolore fugiat id. Lorem officia irure mollit adipisicing laborum voluptate exercitation voluptate fugiat in proident. Culpa anim laboris nulla id reprehenderit esse cillum voluptate consequat quis. Laborum incididunt voluptate reprehenderit sunt sit sunt aliqua in minim elit.\", cuisines : [ \"Pakistani\" ],  approxIngredientsCost : 171.83, approxPrepTime : 60, dishTypes : [ ORGANIC ], ingredients : [ \"Red Chillies\", \"Pork\", ], equipmentNeeded : [ \"Bread machine\", \"Communal oven\", \"Solar cooker\" ], minDinerSize : 19,  media : [ { type : VIDEO, url : \"https://unsplash.com/photos/Gg5-K-mJwuQ\" } ] }) }";
             userLikeDish ="mutation { userLikeDish(userId: \"" + global.userID + "\", dishId: \"c8389683-5832-47fd-8cc5-c3b4f58a212d\") }";
 
 
@@ -42,7 +42,24 @@ describe('Test GraphQL DISHES API queries', function () {
         }
     });
 
-    it('ZESTY_DISHES-001 : Calculate Price api', function (done) {
+    it('ZESTY_DISHES-001 : Create Dish api', function (done) {
+
+        helperUtil.addStep("Request Payload :: "+createDish);
+        fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
+            body: JSON.stringify({query: createDish}),
+        }).then(function (res) {
+
+            return res.json();
+
+        }).then(function (response) {
+            helperUtil.addStep("Updated response is :: " + JSON.stringify(response.data));
+            done();
+        });
+    });
+
+    it('ZESTY_DISHES-002 : Calculate Price api', function (done) {
 
         helperUtil.addStep("Request Payload :: "+calculatePrice);
 
@@ -60,22 +77,7 @@ describe('Test GraphQL DISHES API queries', function () {
         });
     });
 
-    it('ZESTY_DISHES-002 : Create Dish api', function (done) {
 
-        helperUtil.addStep("Request Payload :: "+createDish);
-        fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
-            body: JSON.stringify({query: createDish}),
-        }).then(function (res) {
-
-            return res.json();
-
-        }).then(function (response) {
-            helperUtil.addStep("Updated response is :: " + JSON.stringify(response.data));
-            done();
-        });
-    });
 
     it('ZESTY_DISHES-003 : Cuisine api', function (done) {
 

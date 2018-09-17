@@ -22,12 +22,12 @@ describe('Test GraphQL BOOKINGS API queries', function () {
             helperUtil.envInfo();
 
             chefBookings =  "query { chefBookings(chefId: \"" + global.userID + "\", status: INCOMPLETE, cursor: null, pageSize: 6,startDate: \"2018-08-13\", numWeeks:15) {bookings{ id userId distance amount date  userReviewId } endCursor hasMore} }";
-            createInProgressBooking = "mutation { createInProgressBooking(booking: { userId: \"" + global.userID + "\", chefId: \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", date: \"2018-08-13\", timeSlot: { start: \"11:00\", end: \"13:00\"}, dishes: [{ dishId: \"e9021266-cfca-4e44-b3f6-70edc46ed5d4\", serves: 4 }] ,  equipmentsPresent: [\"Microwave Oven\", \"Grill\", \"Gas\"], cardId: \"card_1D3lThJt7gce93gZX548jWz6\",   }) }";
+            createInProgressBooking = "mutation { createInProgressBooking(booking: { userId: \"" + global.userID + "\", chefId: \"" + global.userID + "\", date: \"2018-08-13\", timeSlot: { start: \"11:00\", end: \"13:00\"}, dishes: [{ dishId: \"e9021266-cfca-4e44-b3f6-70edc46ed5d4\", serves: 4 }] ,  equipmentsPresent: [\"Microwave Oven\", \"Grill\", \"Gas\"], cardId: \"" + global.cardID + "\",   }) }";
             createBooking = "mutation { createBooking(bookingId: \""+ newBookingID +"\" ) }";
             markBookingAsCompleted = "mutation { markBookingAsCompleted(id: \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", bookingId: \"a52fe6c8-1ad9-42b2-b9bb-549cc608fa38\") }";
-            reserveChefSlot = "mutation { reserveChefSlot(chefId: \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", userId: \"" + global.userID + "\", day: \"2018-08-13\", slot: {start: \"11:30\", end: \"14:00\"}) }";
+            reserveChefSlot = "mutation { reserveChefSlot(chefId: \"" + global.userID + "\", userId: \"" + global.userID + "\", day: \"2018-08-13\", slot: {start: \"11:30\", end: \"14:00\"}) }";
             updateBooking = "mutation { updateBooking(bookingId: \"75c18880-7fc9-42ce-a498-f9695134cd5e\", status: COMPLETED ) }";
-            updateInProgressBooking = "mutation { updateInProgressBooking(bookingId: \""+ newBookingID +"\", booking: { userId: \"" + global.userID + "\", chefId: \"" + global.userID + "\", cardId: \"card_1D3lThJt7gce93gZX548jWz6\",   }) }";
+            updateInProgressBooking = "mutation { updateInProgressBooking(bookingId: \""+ newBookingID +"\", booking: { userId: \"" + global.userID + "\", chefId: \"" + global.userID + "\", cardId: \"" + global.cardID + "\",   }) }";
             userBookings = "query { userBookings(userId: \"" + global.userID + "\", status: INCOMPLETE, cursor: null, pageSize: 6) {bookings{ id chefId  date   chefReviewId } endCursor hasMore} }";
 
             done();
@@ -81,7 +81,7 @@ describe('Test GraphQL BOOKINGS API queries', function () {
 
         newBookingID = bookingID;
 
-        updateInProgressBooking = "mutation { updateInProgressBooking(bookingId: \""+ newBookingID +"\", booking: { userId: \"" + global.userID + "\", chefId: \"" + global.userID + "\", cardId: \"card_1D3lThJt7gce93gZX548jWz6\",   }) }";
+        updateInProgressBooking = "mutation { updateInProgressBooking(bookingId: \""+ newBookingID +"\", booking: { userId: \"" + global.userID + "\", chefId: \"" + global.userID + "\", cardId: \"" + global.cardID + "\",   }) }";
 
         console.log(">>>>>>>>>>"+updateInProgressBooking);
         helperUtil.addStep("Request Payload :: "+updateInProgressBooking);
