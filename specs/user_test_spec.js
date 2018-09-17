@@ -13,7 +13,7 @@ var util = require('util'),
 describe('Test GraphQL USER API queries', function () {
 
     var updateUserQuery,addUserPayment,userPaymentMethods,updateUserPayment,savedPosts,savedDishes,savedChefs,refundUser,forgotPassword,deleteUserPayment,deleteUser,deleteSavedItems,addUserToStripe,addSavedItems;
-
+    var cardID, newCardId = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
 
     beforeEach(function (done) {
         if (!userInfo) {
@@ -30,7 +30,7 @@ describe('Test GraphQL USER API queries', function () {
 
                 updateUserQuery = "mutation { updateUser(user:{id: \"" + global.userID + "\", firstName: \"Keshav\", lastName: \"Seera\", pwd: \"P@ssw0rd\",emailId:\"charan@zestygrid.com\"}) }";
                 userPaymentMethods = "query{ userPaymentMethods(userId: \"" + global.userID + "\") { type card{ cardId type last4 expMonth expYear } }}";
-                updateUserPayment = "mutation {updateUserPayment( userId: \"" + global.userID + "\", payment: { type: CARD, card: { number: \"378282246310005\", expMonth: 5, expYear: 2025, cvc: 987 } }, cardId: \"card_1CaC5IJt7gce93gZgTTYcP2Y\" )}";
+                updateUserPayment = "mutation {updateUserPayment( userId: \"" + global.userID + "\", payment: { type: CARD, card: { number: \"378282246310005\", expMonth: 5, expYear: 2025, cvc: 987 } }, cardId: \""+ newCardId + "\" )}";
                 savedPosts = "query { savedPosts(userId: \"" + global.userID + "\", cursor: null, pageSize: 6) { posts{ id chefId title blurb body isDraft tags numOfLikes media { type url } } endCursor hasMore} }";
                 savedDishes = "query { savedDishes(userId: \"" + global.userID + "\", cursor: null, pageSize: 6) { dishes{ id name description cuisine isDraft minPrice minDinerSize equipmentNeeded numOfLikes media { type url } } endCursor hasMore } }";
                 savedChefs = "query { savedChefs(userId: \"" + global.userID + "\", cursor: null, pageSize: 6) { chefs{ id emailId firstName lastName maxDiners minEngagementPrice active rating reviewCount } endCursor hasMore } }";
@@ -99,23 +99,7 @@ describe('Test GraphQL USER API queries', function () {
         });
     });
 
-    it('ZESTY_USER-004 :Update User Payment api', function (done) {
-
-        fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
-            body: JSON.stringify({query: updateUserPayment}),
-        }).then(function (res) {
-
-            return res.json();
-
-        }).then(function (response) {
-            helperUtil.addStep("Update User Payment response is :: " + JSON.stringify(response.data.updateUserPayment));
-            done();
-        });
-    });
-
-    it('ZESTY_USER-005 :User Payment method api', function (done) {
+    it('ZESTY_USER-004 :User Payment method api', function (done) {
 
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
@@ -126,10 +110,38 @@ describe('Test GraphQL USER API queries', function () {
             return res.json();
 
         }).then(function (response) {
+            cardID = response.data.userPaymentMethods[0].card.cardId;
             helperUtil.addStep("User Payment api response is :: " + JSON.stringify(response.data.userPaymentMethods[0]));
             done();
+        }).catch(err => done(err));
+    });
+
+    it('ZESTY_USER-005 :Update User Payment api', function (done) {
+
+        console.log("Card ID is :: >>>>>>>>>>> HOLA >>>>>>>>>>"+cardID);
+        newCardId = cardID;
+        updateUserPayment = "mutation {updateUserPayment( userId: \"" + global.userID + "\", payment: { type: CARD, card: { number: \"378282246310005\", expMonth: 5, expYear: 2025, cvc: 987 } }, cardId: \""+ newCardId + "\" )}";
+
+        console.log("New Request :: "+updateUserPayment);
+        fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
+            body: JSON.stringify({query: updateUserPayment}),
+        }).then(function (res) {
+
+            return res.json();
+
+        }).then(function (response) {
+            helperUtil.addStep("Update User Payment response is :: " + JSON.stringify(response.data.updateUserPayment));
+            cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+            done();
+        }).catch(err => {
+            cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+            done(err);
         });
     });
+
+
 
     it('ZESTY_USER-006 :Add Saved Items api', function (done) {
 
