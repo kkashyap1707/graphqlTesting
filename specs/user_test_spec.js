@@ -133,10 +133,10 @@ describe('Test GraphQL USER API queries', function () {
 
         }).then(function (response) {
             helperUtil.addStep("Update User Payment response is :: " + JSON.stringify(response.data.updateUserPayment));
-            //cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+
             done();
         }).catch(err => {
-            //cardID = 'card_1CaC5IJt7gce93gZgTTYcP2Y';
+
             done(err);
         });
     });

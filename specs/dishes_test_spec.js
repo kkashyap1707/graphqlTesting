@@ -26,7 +26,7 @@ describe('Test GraphQL DISHES API queries', function () {
             cuisines = "query { cuisines(country: \"US\") }";
             deleteDish = "mutation { deleteDish(id: \"182fbc05-4268-4a81-bdd2-6553d55d8fcc\") }";
             dish = "query { dish(id: \"33f2306e-f599-4017-99a5-8123a542252b\", live: true) { id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes } }";
-            dishesByChef = "query {dishesByChef( chefId: \"4c686360-f6ef-4dbc-9e9c-7b70a0f82ebe\", pageSize: 10 ) { dishes{id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} endCursor hasMore }}";
+            dishesByChef = "query {dishesByChef( chefId: \"" + global.userID + "\", pageSize: 10 ) { dishes{id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} endCursor hasMore }}";
             dishesList = "query {dishesList(country: \"US\")}";
             featuredDishes = "query { featuredDishes(dishCount: 10) {id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} }";
             findDishes = "query {findDishes(filters: {cuisines: [\"Chinese\",\"Italian\"], priceMin: 40, priceMax: 300, engagementSize: 6}, cursor: null, pageSize:10, includeChefs:true,chefCount: 3) { dishes{id chefId name description media {url type} cuisine dishTypes isDraft ingredients minPrice minDinerSize equipmentNeeded approxIngredientsCost numOfLikes} endCursor hasMore }}";
@@ -76,8 +76,6 @@ describe('Test GraphQL DISHES API queries', function () {
             done();
         });
     });
-
-
 
     it('ZESTY_DISHES-003 : Cuisine api', function (done) {
 

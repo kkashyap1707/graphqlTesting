@@ -60,6 +60,7 @@ describe('Test GraphQL CHEF API queries', function () {
         });
     });
 
+
     it('ZESTY_CHEF-002 :Add Chef Payout api', function (done) {
 
         helperUtil.addStep("Request Payload :: "+addChefPayout);
