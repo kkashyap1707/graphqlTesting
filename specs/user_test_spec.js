@@ -53,6 +53,8 @@ describe('Test GraphQL USER API queries', function () {
 
     it('ZESTY_USER-001 :Update User api', function (done) {
 
+        helperUtil.addStep("Request Payload :: "+updateUserQuery);
+
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
@@ -68,6 +70,8 @@ describe('Test GraphQL USER API queries', function () {
     });
 
     it('ZESTY_USER-002 :Add User to Stripe api', function (done) {
+
+        helperUtil.addStep("Request Payload :: "+addUserToStripe);
 
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
@@ -85,6 +89,8 @@ describe('Test GraphQL USER API queries', function () {
 
     it('ZESTY_USER-003 :Add User Payment api', function (done) {
 
+        helperUtil.addStep("Request Payload :: "+addUserPayment);
+
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
@@ -100,6 +106,8 @@ describe('Test GraphQL USER API queries', function () {
     });
 
     it('ZESTY_USER-004 :User Payment method api', function (done) {
+
+        helperUtil.addStep("Request Payload :: "+userPaymentMethods);
 
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
@@ -118,11 +126,17 @@ describe('Test GraphQL USER API queries', function () {
 
     it('ZESTY_USER-005 :Update User Payment api', function (done) {
 
+
+
         console.log("Card ID is :: >>>>>>>>>>> HOLA >>>>>>>>>>"+cardID);
         newCardId = global.cardID;
+        helperUtil.addStep("New Card ID is :: "+newCardId);
         updateUserPayment = "mutation {updateUserPayment( userId: \"" + global.userID + "\", payment: { type: CARD, card: { number: \"378282246310005\", expMonth: 5, expYear: 2025, cvc: 987 } }, cardId: \""+ newCardId + "\" )}";
 
         console.log("New Request :: "+updateUserPayment);
+
+        helperUtil.addStep("Request Payload :: "+updateUserPayment);
+
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
@@ -141,10 +155,9 @@ describe('Test GraphQL USER API queries', function () {
         });
     });
 
-
-
     it('ZESTY_USER-006 :Add Saved Items api', function (done) {
 
+        helperUtil.addStep("Request Payload :: "+addSavedItems);
         fetch(JSONData.AutoTextList[0].BASE_URL + JSONData.AutoTextList[0].REDIRECT_URL, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + global.authToken},
